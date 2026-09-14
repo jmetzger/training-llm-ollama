@@ -30,7 +30,7 @@ Verteilung: 30 % Theorie, 50 % Hands-on-Übungen, 20 % Projektarbeit & Transfer
      * Vergleich RAG vs. Fine-Tuning
 
   1. LangChain
-     * Einführung in LangChain (Chains & Agents – Demo)
+     * [Einführung in LangChain: Agent mit Tools](langchain/agent-mit-tools.md)
 
   1. Praxisprojekt
      * Implementierung eines funktionalen RAG-Chatbots
