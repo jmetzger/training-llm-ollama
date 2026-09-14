@@ -24,7 +24,7 @@ Verteilung: 30 % Theorie, 50 % Hands-on-Übungen, 20 % Projektarbeit & Transfer
 ### Tag 2 – RAG & Integration
 
   1. RAG
-     * Architektur von Retrieval Augmented Generation
+     * [Architektur von Retrieval Augmented Generation](rag/architektur-rag.md)
      * [Embeddings und Vektordatenbanken](rag/embeddings-und-vektordatenbank.md)
      * [Integration eigener PDF-Dokumente](rag/pdf-integration.md)
      * [Vergleich RAG vs. Fine-Tuning](rag/rag-vs-finetuning.md)
