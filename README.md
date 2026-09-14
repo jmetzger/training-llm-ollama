@@ -19,7 +19,7 @@ Verteilung: 30 % Theorie, 50 % Hands-on-Übungen, 20 % Projektarbeit & Transfer
      * [Praktische Übung: Lokale Modellinbetriebnahme](ollama/erste-inbetriebnahme.md)
 
   1. Prompting
-     * Prompt-Engineering-Grundlagen
+     * [Prompt-Engineering-Grundlagen](prompting/grundlagen.md)
 
 ### Tag 2 – RAG & Integration
 
