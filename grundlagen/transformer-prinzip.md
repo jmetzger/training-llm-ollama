@@ -5,6 +5,29 @@ Tag 1 praktisch schon vorkamen (Kontextfenster/`num_ctx` in
 [ollama/modelle.md](../ollama/modelle.md)) und ab Tag 2 wichtig werden (Embeddings in
 [rag/embeddings-und-vektordatenbank.md](../rag/embeddings-und-vektordatenbank.md)).
 
+## Was ist ein Token?
+
+Ein Token ist die kleinste Texteinheit, mit der ein Sprachmodell rechnet - **nicht** dasselbe
+wie ein Wort. Ein Tokenizer zerlegt Text in Stuecke, die manchmal einem ganzen Wort entsprechen,
+oft aber nur einem Wortteil. Getestet (llama3.2, ueber die Ollama-API gemessene Tokenanzahl):
+
+| Text | Woerter | Tokens |
+|---|---|---|
+| Hallo | 1 | 2 |
+| Ollama | 1 | 4 |
+| Retrieval Augmented Generation | 3 | 7 |
+
+"Retrieval Augmented Generation" hat drei Woerter, aber sieben Tokens - Begriffe, die nicht als
+Ganzes im Vokabular des Modells stehen (z.B. Fachbegriffe, Eigennamen wie "Ollama"), werden in
+mehrere Teiltokens zerlegt. Das ist keine Eigenart von llama3.2, sondern gilt fuer alle
+Transformer-Modelle - nur die genaue Zerlegung unterscheidet sich je nach Modell.
+
+**Deshalb** wird das Kontextfenster (`num_ctx`, siehe [ollama/modelle.md](../ollama/modelle.md))
+in Tokens gemessen, nicht in Woertern oder Zeichen, und deshalb bezieht sich die
+"Tokens/Sekunde"-Angabe aus `ollama run --verbose` (siehe
+[produktion/quantisierung-und-performance.md](../produktion/quantisierung-und-performance.md))
+auf diese kleineren Einheiten, nicht auf Woerter.
+
 ## Die Kernidee: Self-Attention
 
 Vor Transformern (bis ca. 2017) verarbeiteten Sprachmodelle Text Wort fuer Wort in fester
