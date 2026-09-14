@@ -10,7 +10,7 @@ Verteilung: 30 % Theorie, 50 % Hands-on-Übungen, 20 % Projektarbeit & Transfer
 
   1. Grundlagen
      * Einführung in LLM-Architekturen
-     * Transformer-Prinzip (Überblick)
+     * [Transformer-Prinzip (Überblick)](grundlagen/transformer-prinzip.md)
      * Lokale Nutzung vs. Cloud (DSGVO-Einordnung)
 
   1. Ollama
