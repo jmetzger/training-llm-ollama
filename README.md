@@ -25,9 +25,8 @@ Verteilung: 30 % Theorie, 50 % Hands-on-Übungen, 20 % Projektarbeit & Transfer
 
   1. RAG
      * Architektur von Retrieval Augmented Generation
-     * Embeddings und Vektordatenbanken
-     * Einrichtung eines lokalen Chroma Vector Stores
-     * Integration eigener PDF-Dokumente
+     * [Embeddings und Vektordatenbanken](rag/embeddings-und-vektordatenbank.md)
+     * [Integration eigener PDF-Dokumente](rag/pdf-integration.md)
      * Vergleich RAG vs. Fine-Tuning
 
   1. LangChain
