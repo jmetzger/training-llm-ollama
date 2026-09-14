@@ -1,0 +1,53 @@
+<svg viewBox="0 0 920 370" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vergleich RAG vs. Fine-Tuning: Bei RAG bleiben die Modellgewichte unveraendert und werden zur Anfragezeit mit frisch abgerufenem Kontext kombiniert. Bei Fine-Tuning wird neues Wissen vorab in ein komplett neues Gewichte-Set eintrainiert.">
+  <defs>
+    <marker id="arrowR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="920" height="370" fill="#ffffff"/>
+
+  <!-- Lane A: RAG -->
+  <text x="20" y="35" font-size="14" font-weight="bold" fill="#0f766e">RAG</text>
+
+  <rect x="20" y="60" width="140" height="60" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="90" y="94" text-anchor="middle" font-size="12" fill="#1e293b">Neues Dokument</text>
+
+  <rect x="200" y="60" width="170" height="60" rx="8" fill="#e6f2f0" stroke="#0f766e" stroke-width="2"/>
+  <text x="285" y="86" text-anchor="middle" font-size="12" fill="#0f766e">In Chroma einbetten</text>
+  <text x="285" y="102" text-anchor="middle" font-size="12" fill="#0f766e">(Sekunden)</text>
+
+  <rect x="200" y="140" width="170" height="60" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="285" y="166" text-anchor="middle" font-size="12" fill="#64748b">Modellgewichte</text>
+  <text x="285" y="182" text-anchor="middle" font-size="12" fill="#64748b">unveraendert</text>
+
+  <rect x="430" y="100" width="230" height="60" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="545" y="126" text-anchor="middle" font-size="12" fill="#1e293b">Antwort = Gewichte +</text>
+  <text x="545" y="142" text-anchor="middle" font-size="12" fill="#1e293b">abgerufener Kontext</text>
+
+  <line x1="160" y1="90" x2="195" y2="90" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowR)"/>
+  <line x1="370" y1="90" x2="395" y2="90" stroke="#334155" stroke-width="1.5"/>
+  <line x1="395" y1="90" x2="425" y2="118" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowR)"/>
+  <line x1="370" y1="170" x2="395" y2="170" stroke="#334155" stroke-width="1.5"/>
+  <line x1="395" y1="170" x2="425" y2="142" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowR)"/>
+
+  <!-- Lane B: Fine-Tuning -->
+  <text x="20" y="255" font-size="14" font-weight="bold" fill="#b45309">Fine-Tuning</text>
+
+  <rect x="20" y="280" width="140" height="60" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="90" y="314" text-anchor="middle" font-size="12" fill="#1e293b">Neue Trainingsdaten</text>
+
+  <rect x="200" y="280" width="220" height="60" rx="8" fill="#fdf1e6" stroke="#b45309" stroke-width="2"/>
+  <text x="310" y="306" text-anchor="middle" font-size="12" fill="#b45309">Modellgewichte neu trainieren</text>
+  <text x="310" y="322" text-anchor="middle" font-size="12" fill="#b45309">(Stunden/Tage, GPU-Cluster)</text>
+
+  <rect x="460" y="280" width="140" height="60" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="530" y="314" text-anchor="middle" font-size="12" fill="#1e293b">Neues Modell</text>
+
+  <rect x="640" y="280" width="250" height="60" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="765" y="306" text-anchor="middle" font-size="12" fill="#1e293b">Antwort direkt aus</text>
+  <text x="765" y="322" text-anchor="middle" font-size="12" fill="#1e293b">neuen Gewichten</text>
+
+  <line x1="160" y1="310" x2="195" y2="310" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowR)"/>
+  <line x1="420" y1="310" x2="455" y2="310" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowR)"/>
+  <line x1="600" y1="310" x2="635" y2="310" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowR)"/>
+</svg>

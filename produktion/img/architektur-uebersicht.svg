@@ -1,0 +1,52 @@
+<svg viewBox="0 0 940 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Produktionsarchitektur: Client sendet Prompt und Token an einen Auth-Proxy, der Token prueft und protokolliert, bevor die Anfrage an Ollama weitergeleitet wird. Ollama fragt bei Bedarf Chroma nach RAG-Kontext. Ressourcen-Konfiguration wie OLLAMA_KEEP_ALIVE steuert Ollama direkt.">
+  <defs>
+    <marker id="arrowA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="940" height="320" fill="#ffffff"/>
+
+  <rect x="20" y="70" width="150" height="60" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="95" y="104" text-anchor="middle" font-size="12" fill="#1e293b">Client / Anwendung</text>
+
+  <rect x="230" y="60" width="230" height="80" rx="8" fill="#e6f2f0" stroke="#0f766e" stroke-width="2"/>
+  <text x="345" y="94" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f766e">Auth-Proxy</text>
+  <text x="345" y="112" text-anchor="middle" font-size="12" fill="#0f766e">Token-Pruefung + Audit-Log</text>
+
+  <rect x="560" y="70" width="180" height="60" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="650" y="94" text-anchor="middle" font-size="12" fill="#1e293b">Ollama + Modell</text>
+  <text x="650" y="110" text-anchor="middle" font-size="12" fill="#1e293b">(granite4.1:8b)</text>
+
+  <rect x="560" y="220" width="180" height="60" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="650" y="244" text-anchor="middle" font-size="12" fill="#1e293b">Chroma Vektordatenbank</text>
+  <text x="650" y="260" text-anchor="middle" font-size="12" fill="#1e293b">(RAG-Kontext)</text>
+
+  <rect x="790" y="70" width="130" height="60" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="855" y="94" text-anchor="middle" font-size="11" fill="#64748b">Ressourcen-Konfig:</text>
+  <text x="855" y="110" text-anchor="middle" font-size="11" fill="#64748b">KEEP_ALIVE,</text>
+  <text x="855" y="124" text-anchor="middle" font-size="11" fill="#64748b">MAX_LOADED</text>
+
+  <!-- Client <-> Proxy -->
+  <line x1="170" y1="90" x2="225" y2="90" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowA)"/>
+  <text x="197" y="82" text-anchor="middle" font-size="10" fill="#64748b">Prompt</text>
+
+  <line x1="225" y1="112" x2="170" y2="112" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowA)"/>
+  <text x="197" y="128" text-anchor="middle" font-size="10" fill="#64748b">Antwort</text>
+
+  <!-- Proxy <-> Ollama -->
+  <line x1="460" y1="90" x2="555" y2="90" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowA)"/>
+  <text x="507" y="82" text-anchor="middle" font-size="10" fill="#64748b">autorisiert</text>
+
+  <line x1="555" y1="112" x2="460" y2="112" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowA)"/>
+  <text x="507" y="128" text-anchor="middle" font-size="10" fill="#64748b">Antwort</text>
+
+  <!-- Ollama <-> Chroma -->
+  <line x1="630" y1="130" x2="630" y2="215" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowA)"/>
+  <text x="605" y="175" text-anchor="end" font-size="10" fill="#64748b">Frage embedden</text>
+
+  <line x1="670" y1="215" x2="670" y2="130" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowA)"/>
+  <text x="695" y="175" text-anchor="start" font-size="10" fill="#64748b">Kontext-Chunks</text>
+
+  <!-- Ollama -> Ressourcen-Konfig -->
+  <line x1="740" y1="100" x2="785" y2="100" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3"/>
+</svg>

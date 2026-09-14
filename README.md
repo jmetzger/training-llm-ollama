@@ -9,9 +9,9 @@ Verteilung: 30 % Theorie, 50 % Hands-on-Übungen, 20 % Projektarbeit & Transfer
 ### Tag 1 – Grundlagen & Setup
 
   1. Grundlagen
-     * Einführung in LLM-Architekturen
+     * [Einführung in LLM-Architekturen](grundlagen/llm-architekturen.md)
      * [Transformer-Prinzip (Überblick)](grundlagen/transformer-prinzip.md)
-     * Lokale Nutzung vs. Cloud (DSGVO-Einordnung)
+     * [Lokale Nutzung vs. Cloud (DSGVO-Einordnung)](grundlagen/lokal-vs-cloud-dsgvo.md)
 
   1. Ollama
      * [Installation und Konfiguration von Ollama](ollama/installation.md)
@@ -27,7 +27,7 @@ Verteilung: 30 % Theorie, 50 % Hands-on-Übungen, 20 % Projektarbeit & Transfer
      * Architektur von Retrieval Augmented Generation
      * [Embeddings und Vektordatenbanken](rag/embeddings-und-vektordatenbank.md)
      * [Integration eigener PDF-Dokumente](rag/pdf-integration.md)
-     * Vergleich RAG vs. Fine-Tuning
+     * [Vergleich RAG vs. Fine-Tuning](rag/rag-vs-finetuning.md)
 
   1. LangChain
      * [Einführung in LangChain: Agent mit Tools](langchain/agent-mit-tools.md)
@@ -38,7 +38,7 @@ Verteilung: 30 % Theorie, 50 % Hands-on-Übungen, 20 % Projektarbeit & Transfer
 ### Tag 3 – Produktionsnahe Umsetzung & Transfer
 
   1. Produktion
-     * Architekturentscheidungen
+     * [Architekturentscheidungen](produktion/architekturentscheidungen.md)
      * [Sicherheits- und Zugriffskonzepte](produktion/sicherheit-und-zugriff.md)
      * [Logging- und Audit-Aspekte](produktion/logging-und-audit.md)
      * [Performanceoptimierung (Modellgröße, Quantisierung)](produktion/quantisierung-und-performance.md)
