@@ -14,9 +14,9 @@ Verteilung: 30 % Theorie, 50 % Hands-on-Übungen, 20 % Projektarbeit & Transfer
      * Lokale Nutzung vs. Cloud (DSGVO-Einordnung)
 
   1. Ollama
-     * Installation und Konfiguration von Ollama
-     * Download und Parametrisierung von Modellen
-     * Praktische Übung: Lokale Modellinbetriebnahme
+     * [Installation und Konfiguration von Ollama](ollama/installation.md)
+     * [Download und Parametrisierung von Modellen](ollama/modelle.md)
+     * [Praktische Übung: Lokale Modellinbetriebnahme](ollama/erste-inbetriebnahme.md)
 
   1. Prompting
      * Prompt-Engineering-Grundlagen
