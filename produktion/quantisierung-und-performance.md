@@ -41,30 +41,34 @@ nvidia-smi --query-gpu=memory.used,memory.free --format=csv -l 1
   [ollama/erste-inbetriebnahme.md](../ollama/erste-inbetriebnahme.md)) - lohnt sich das kleinere
   Modell dort ueberhaupt noch, oder nur auf ressourcenschwaecheren Maschinen?
 
-## Getestete Ergebnisse (14.09.2026, 6-GB-Notebook, identischer Prompt)
+## Getestete Ergebnisse (14.09.2026, 6-GB-Notebook, identischer Prompt, drei Wiederholungen je Modell)
 
 | Modell | Processor (`ollama ps`) | eval rate | load duration | total duration |
 |---|---|---|---|---|
-| granite4.1:3b | 100% GPU (2,5 GB) | 20,99 tokens/s | 9,7 s | 23,4 s |
-| granite4.1:8b | 31 %/69 % CPU/GPU (6,2 GB) | 19,28 tokens/s | 5,0 s | 9,8 s |
+| granite4.1:3b | 100% GPU (2,5 GB) | ~91 tokens/s (90,7-93,6) | 3,6-3,7 s | 4,7-5,0 s |
+| granite4.1:8b | 31 %/69 % CPU/GPU (6,2 GB) | ~18 tokens/s (17,3-18,8) | 5,0-5,1 s | 10,7-22,8 s |
 
-Ueberraschung: Die `eval rate` (reine Token-Generierungsgeschwindigkeit) unterscheidet sich auf
-diesem Notebook kaum zwischen 3B und 8B - beide werden durch die GPU/CPU-Aufteilung gebremst,
-das 3B-Modell zusaetzlich durch die laengere Ladezeit (9,7 s, vermutlich weil vorher ein
-groesseres Modell aus dem VRAM verdraengt werden musste). Der eigentliche Vorteil des kleineren
-Modells zeigt sich also nicht in der Tokengeschwindigkeit, sondern darin, dass es komplett auf
-der GPU laeuft (100 % vs. 31 %/69 %) - das wird erst auf laenglicheren Antworten oder unter
-gleichzeitiger Last relevant. Inhaltlich beantworten beide Modelle die Frage sachlich korrekt;
-granite4.1:8b antwortet knapper (83 Tokens) als granite4.1:3b (133 Tokens) bei gleicher
-Kernaussage.
+Reproduzierbares Ergebnis, klar wie erwartet: `granite4.1:3b` generiert **~5x schneller**
+(eval rate) als `granite4.1:8b`. Der Grund steht in der `ollama ps`-Spalte: 3b laeuft
+komplett auf der GPU (100 %), 8b muss einen Teil der Layer auf die CPU auslagern (31 %/69 %
+CPU/GPU-Split), weil es nicht komplett in die 6 GB VRAM passt - und CPU-Rechenschritte sind
+um ein Vielfaches langsamer als GPU-Schritte. Inhaltlich beantworten beide Modelle die Frage
+sachlich korrekt, granite4.1:8b tendenziell etwas ausfuehrlicher.
+
+**Hinweis fuer die Durchfuehrung:** Einzelmessungen koennen stark schwanken (z.B. durch ein
+kurz zuvor noch geladenes anderes Modell, das erst verdraengt werden muss - siehe
+[ollama/erste-inbetriebnahme.md](../ollama/erste-inbetriebnahme.md)). Mehrere Wiederholungen
+pro Modell zu messen und die `ollama ps`-Zeile mit zu dokumentieren, ist wichtiger als eine
+einzelne `--verbose`-Zahl unkommentiert zu uebernehmen.
 
 ## Einordnung
 
 Die Entscheidung "welches Modell in Produktion" ist ein Tradeoff aus drei Achsen: Antwortqualitaet,
-Latenz/Durchsatz, VRAM-Bedarf (= Hardwarekosten). Es gibt kein pauschal "bestes" Modell - und wie
-das Testergebnis oben zeigt, ist "kleiner = schneller" auf ressourcenknapper Hardware keine
-Selbstverstaendlichkeit, wenn beide Modelle ohnehin CPU-Offloading brauchen. Auf einer
-16-GB-Trainings-VM, wo granite4.1:8b komplett auf der GPU laeuft, faellt der Unterschied
-vermutlich deutlicher aus. Die Uebung in [ressourcenmanagement.md](ressourcenmanagement.md)
+Latenz/Durchsatz, VRAM-Bedarf (= Hardwarekosten). Auf dieser 6-GB-Hardware ist der Fall klar:
+Das kleinere Modell ist massiv schneller, weil es vollstaendig auf der GPU laeuft. Auf einer
+16-GB-Trainings-VM, wo auch `granite4.1:8b` komplett auf der GPU laeuft (siehe
+[ollama/erste-inbetriebnahme.md](../ollama/erste-inbetriebnahme.md)), faellt der
+Geschwindigkeitsunterschied vermutlich deutlich kleiner aus - das waere ein guter Vergleichstest
+auf einer echten Trainings-VM. Die Uebung in [ressourcenmanagement.md](ressourcenmanagement.md)
 zeigt danach, wie man mehrere Modelle kontrolliert nebeneinander betreibt, statt nur eines
 auszuwaehlen.
