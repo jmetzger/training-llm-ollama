@@ -33,7 +33,7 @@ Verteilung: 30 % Theorie, 50 % Hands-on-Übungen, 20 % Projektarbeit & Transfer
      * [Einführung in LangChain: Agent mit Tools](langchain/agent-mit-tools.md)
 
   1. Praxisprojekt
-     * Implementierung eines funktionalen RAG-Chatbots
+     * [Implementierung eines funktionalen RAG-Chatbots](projekt/rag-chatbot.md)
 
 ### Tag 3 – Produktionsnahe Umsetzung & Transfer
 
