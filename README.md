@@ -39,13 +39,13 @@ Verteilung: 30 % Theorie, 50 % Hands-on-Übungen, 20 % Projektarbeit & Transfer
 
   1. Produktion
      * Architekturentscheidungen
-     * Logging- und Audit-Aspekte
-     * Sicherheits- und Zugriffskonzepte
-     * Performanceoptimierung (Modellgröße, Quantisierung)
-     * Ressourcenmanagement
+     * [Sicherheits- und Zugriffskonzepte](produktion/sicherheit-und-zugriff.md)
+     * [Logging- und Audit-Aspekte](produktion/logging-und-audit.md)
+     * [Performanceoptimierung (Modellgröße, Quantisierung)](produktion/quantisierung-und-performance.md)
+     * [Ressourcenmanagement](produktion/ressourcenmanagement.md)
 
   1. Abschlussprojekt
-     * Eigenständiger Aufbau eines minimalen produktionsnahen RAG-Systems
+     * [Eigenständiger Aufbau eines minimalen produktionsnahen RAG-Systems](projekt/abschlussprojekt.md)
 
 ## Voraussetzungen
 
